@@ -1,0 +1,46 @@
+body {
+  /* background-color: navy; */
+  background-image: url(../images/caveBackground.gif);
+  color: violet;
+}
+
+h1 {
+  /* font-size: 50px; */
+  color: orange;
+  text-align: center;
+}
+
+.instructions {
+  /* opacity: 80%; */
+  background-color: black;
+  padding: 15px;
+  margin: 20px;
+}
+
+.winLoss {
+  color: aqua;
+  padding: 15px;
+  font-size: 25px;
+  background-color: navy;
+  float: right;
+  margin: 10px;
+}
+
+.goalBox {
+  color: green;
+  padding: 15%;
+  background-color: orange;
+  margin: 10px;
+  float: left;
+}
+
+.crystals {
+  height: 150px;
+}
+
+.tally {
+  background-color: purple;
+  color: orange;
+  text-align: center;
+
+}
