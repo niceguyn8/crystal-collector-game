@@ -28,10 +28,10 @@ h1 {
   padding: 15px;
   font-size: 25px;
   background-color: navy;
-  float: right;
   margin: 10px;
   box-shadow: 5px 10px 5px black;
   text-align: center;
+  height: 50%;
 }
 
 .goalBox {
@@ -39,14 +39,20 @@ h1 {
   padding: 15%;
   background-color: navy;
   margin: 10px;
-  float: left;
   font-size: 30px;
   text-align: center;
   box-shadow: 5px 10px 5px black;
+  height: 100;
+}
+
+#goal {
+  margin: 25px;
+  /* padding: 20px; */
 }
 
 .crystals {
   height: 150px;
+  margin: 20px;
 }
 
 .tally {

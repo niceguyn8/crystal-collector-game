@@ -26,7 +26,7 @@
     <!--Intructions  -->
     <div class="container">
     <div class="row">
-    <div class="col-lg-9 col-md-9 col col-sm-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col col-sm-12 col-xs-12">
       <div class="instructions">
       <!-- <div class="intructions.text"> -->
         <p>
@@ -57,7 +57,9 @@
       <!--Goalbox for Random number to match  -->
       <div class="goalBox">
         <!-- <h6>Number to Match</h6> -->
-        <span id="goal"></span>
+        <h4>Number to Match:</h4>
+        <div id="goal"></div>
+      </div>
       </div>
 
       <!--Win/Loss board -->
@@ -71,7 +73,6 @@
           </h4>
         </div>
 
-      </div>
       </div>
       </div>
       </div>
@@ -97,7 +98,7 @@
       <!--Tally Tracker  -->
       <div class="container">
       <div class="row">
-      <div class="col-lg-6 col-md-6 col col-sm-12 col-xs-12">
+      <div class="col-lg-12 col-md-12 col col-sm-12 col-xs-12">
         <div class="tally">
           <h3>Your Score So Far:
             <span id="score"></span>
@@ -140,7 +141,7 @@
     Goal=Math.floor(Math.random()*101+19);
       console.log(Goal)
 
-      // reset goal box
+    // reset goal box
   $('#goal').text(Goal);
 
   // reset crystal values
@@ -199,7 +200,7 @@ $('#GreenCrystal').on ('click', function(){
       userTally = userTally + OrangeCrystal;
       console.log("New userTally= " + userTally);
       $('#score').text(userTally);
-              //create win/lose scenario
+            //create win/lose scenario
           if (userTally == Goal){
             gameWin();
           }
