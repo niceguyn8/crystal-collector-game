@@ -2,17 +2,23 @@ body {
   /* background-color: navy; */
   background-image: url(../images/caveBackground.gif);
   color: violet;
+  font-family: 'Press Start 2P', cursive;
 }
 
 h1 {
   /* font-size: 50px; */
-  color: orange;
+  color: aqua;
+  text-shadow: 10px 20px navy;
   text-align: center;
 }
 
 .instructions {
-  /* opacity: 80%; */
+  /* opacity: 0.5; */
   background-color: black;
+  box-shadow: 5px 10px 5px black;
+  font-size: 10px;
+  /* background: rgba(255,0,0,0.99); */
+
   padding: 15px;
   margin: 20px;
 }
@@ -24,14 +30,19 @@ h1 {
   background-color: navy;
   float: right;
   margin: 10px;
+  box-shadow: 5px 10px 5px black;
+  text-align: center;
 }
 
 .goalBox {
-  color: green;
+  color: aqua;
   padding: 15%;
-  background-color: orange;
+  background-color: navy;
   margin: 10px;
   float: left;
+  font-size: 30px;
+  text-align: center;
+  box-shadow: 5px 10px 5px black;
 }
 
 .crystals {
@@ -39,8 +50,10 @@ h1 {
 }
 
 .tally {
-  background-color: purple;
-  color: orange;
+  background-color: navy;
+  color: violet;
   text-align: center;
-
+  padding: 15px;
+  margin: 10px;
+  box-shadow: 5px 10px 5px black;
 }

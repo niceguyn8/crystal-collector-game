@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Crystal Collector</title>
-
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+
   </head>
   <body>
 
@@ -27,6 +28,7 @@
     <div class="row">
     <div class="col-lg-9 col-md-9 col col-sm-12 col-xs-12">
       <div class="instructions">
+      <!-- <div class="intructions.text"> -->
         <p>
           You will be given a random number at the start of the game.
         </p>
@@ -43,6 +45,7 @@
           Each time when the game starts, the game will change the values of each crystal.
         </p>
       </div>
+      <!-- </div> -->
     </div>
     </div>
     </div>
@@ -53,16 +56,22 @@
     <div class="col-lg-6 col-md-6 col col-sm-12 col-xs-12">
       <!--Goalbox for Random number to match  -->
       <div class="goalBox">
-        <p>???</p>
+        <!-- <h6>Number to Match</h6> -->
+        <span id="goal"></span>
       </div>
 
       <!--Win/Loss board -->
       <div class="col-lg-6 col-md-6 col col-sm-12 col-xs-12">
         <div class="winLoss">
-          <h4>Wins: ?</h4>
-          <h4>Losses: ?</h4>
+          <h4>Wins:
+            <span id="wins"></span>
+          </h4>
+          <h4>Losses:
+            <span id="losses"></span>
+          </h4>
         </div>
 
+      </div>
       </div>
       </div>
       </div>
@@ -71,16 +80,16 @@
       <div class="container">
       <div class="row">
       <div class="col-lg-3 col-md-3 col col-sm-12 col-xs-12">
-        <a href="#"><img src="assets/images/GreenRupee.png" class="crystals" alt="GreenCrystal"></a>
+        <img src="assets/images/GreenRupee.png" class="crystals" id="GreenCrystal" alt="GreenCrystal">
       </div>
       <div class="col-lg-3 col-md-3 col col-sm-12 col-xs-12">
-        <a href="#"><img src="assets/images/PurpleRupee.png" class="crystals" alt="PurpleCrystal"></a>
+        <img src="assets/images/PurpleRupee.png" class="crystals" id="PurpleCrystal" alt="PurpleCrystal">
       </div>
       <div class="col-lg-3 col-md-3 col col-sm-12 col-xs-12">
-        <a href="#"><img src="assets/images/RedRupee.jpg" class="crystals" alt="RedCrystal"></a>
+        <img src="assets/images/OrangeRupee.png" class="crystals" id="OrangeCrystal" alt="OrangeCrystal">
       </div>
       <div class="col-lg-3 col-md-3 col col-sm-12 col-xs-12">
-        <a href="#"><img src="assets/images/SkyRupee.png" class="crystals" alt="BlueCrystal"></a>
+        <img src="assets/images/SkyRupee.png" class="crystals" id="BlueCrystal" alt="BlueCrystal">
       </div>
       </div>
       </div>
@@ -90,8 +99,9 @@
       <div class="row">
       <div class="col-lg-6 col-md-6 col col-sm-12 col-xs-12">
         <div class="tally">
-          <h3>Your Score So Far</h3>
-          <p>???</p>
+          <h3>Your Score So Far:
+            <span id="score"></span>
+          </h3>
         </div>
       </div>
       </div>
@@ -105,17 +115,112 @@
 
   var wins = 0;
   var losses = 0;
-  var goalBox = 0;
+  var userTally = 0;
 
+  $(document).ready(function(){
 
+  // Random number to reach between 19-120
+  var Goal=Math.floor(Math.random()*101+19)
 
+  //append to goalbox element in html
+  $('#goal').text(Goal);
 
+  // generate random numbers for each crystal between 1-12
+  var GreenCrystal= Math.floor(Math.random()*11+1)
+  var PurpleCrystal= Math.floor(Math.random()*11+1)
+  var OrangeCrystal= Math.floor(Math.random()*11+1)
+  var BlueCrystal= Math.floor(Math.random()*11+1)
 
+  // append number of wins and losses into html
+  $('#wins').text(wins);
+  $('#losses').text(losses);
 
+  // reset the game when a win or loss is recorded
+  function reset(){
+    Goal=Math.floor(Math.random()*101+19);
+      console.log(Goal)
+
+      // reset goal box
+  $('#goal').text(Goal);
+
+  // reset crystal values
+  GreenCrystal= Math.floor(Math.random()*11+1)
+  PurpleCrystal= Math.floor(Math.random()*11+1)
+  OrangeCrystal= Math.floor(Math.random()*11+1)
+  BlueCrystal= Math.floor(Math.random()*11+1)
+  userTally= 0;
+
+  // reset tally
+  $('#score').text(userTally);
+  }
+
+  // record Win scenario
+  function gameWin(){
+    wins++;
+    $('#wins').text(wins);
+    reset();
+  }
+
+// record loss scenario
+function gameLoss(){
+  losses++;
+  $('#losses').text(losses);
+  reset();
+}
+
+// enable clicks on crystals
+$('#GreenCrystal').on ('click', function(){
+    userTally = userTally + GreenCrystal;
+    console.log("New userTally= " + userTally);
+    $('#score').text(userTally);
+          //create win/lose scenario
+        if (userTally == Goal){
+          gameWin();
+        }
+        else if ( userTally > Goal){
+          gameLoss();
+        }
+  })
+
+  $('#PurpleCrystal').on ('click', function(){
+      userTally = userTally + PurpleCrystal;
+      console.log("New userTally= " + userTally);
+      $('#score').text(userTally);
+            //create win/lose scenario
+          if (userTally == Goal){
+            gameWin();
+          }
+          else if (userTally > Goal){
+            gameLoss();
+          }
+    })
+
+  $('#OrangeCrystal').on ('click', function(){
+      userTally = userTally + OrangeCrystal;
+      console.log("New userTally= " + userTally);
+      $('#score').text(userTally);
+              //create win/lose scenario
+          if (userTally == Goal){
+            gameWin();
+          }
+          else if (userTally > Goal){
+            gameLoss();
+          }
+      })
+
+    $('#BlueCrystal').on ('click', function(){
+        userTally = userTally + BlueCrystal;
+        console.log("New userTally= " + userTally);
+        $('#score').text(userTally);
+              //create win/lose scenario
+            if (userTally == Goal){
+              gameWin();
+            }
+            else if (userTally > Goal){
+              gameLoss();
+            }
+        });
+  });
 
 </script>
-
-
-
-
 </html>
