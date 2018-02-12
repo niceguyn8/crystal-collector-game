@@ -6,7 +6,6 @@ body {
 }
 
 h1 {
-  /* font-size: 50px; */
   color: aqua;
   text-shadow: 10px 20px navy;
   text-align: center;
@@ -15,7 +14,7 @@ h1 {
 .instructions {
   /* opacity: 0.5; */
   background-color: black;
-  box-shadow: 5px 10px 5px black;
+  box-shadow: 5px 5px 20px violet;
   font-size: 10px;
   /* background: rgba(255,0,0,0.99); */
 
@@ -46,8 +45,7 @@ h1 {
 }
 
 #goal {
-  margin: 25px;
-  /* padding: 20px; */
+  margin: 30px;
 }
 
 .crystals {
@@ -62,4 +60,9 @@ h1 {
   padding: 15px;
   margin: 10px;
   box-shadow: 5px 10px 5px black;
+}
+
+#score {
+  margin: 40px;
+  font-size: 30px;
 }
