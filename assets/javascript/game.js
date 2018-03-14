@@ -35,60 +35,96 @@ function gameWin(){
   wins++;
   $('#wins').text(wins);
   reset();
+  $("#tally").addClass("animated jackInTheBox").one(animationend, function () {
+    $(this).removeClass("animated jackInTheBox");
+  })
 }
 // record loss scenario
 function gameLoss(){
 losses++;
 $('#losses').text(losses);
+
 reset();
 }
 // enable clicks on crystals
+
 $('#GreenCrystal').on ('click', function(){
   userTally = userTally + GreenCrystal;
   console.log("New userTally= " + userTally);
   $('#score').text(userTally);
-        //create win/lose scenario
-      if (userTally == Goal){
-        gameWin();
-      }
-      else if ( userTally > Goal){
-        gameLoss();
-      }
-})
+  //create win/lose scenario
+  if (userTally == Goal){
+    gameWin();
+  }
+  else if ( userTally > Goal){
+    gameLoss();
+  }
+});
+
 $('#PurpleCrystal').on ('click', function(){
     userTally = userTally + PurpleCrystal;
     console.log("New userTally= " + userTally);
     $('#score').text(userTally);
-          //create win/lose scenario
-        if (userTally == Goal){
-          gameWin();
-        }
-        else if (userTally > Goal){
-          gameLoss();
-        }
-  })
+    //create win/lose scenario
+    if (userTally == Goal){
+      gameWin();
+    }
+    else if (userTally > Goal){
+      gameLoss();
+    }
+  });
+
 $('#OrangeCrystal').on ('click', function(){
     userTally = userTally + OrangeCrystal;
     console.log("New userTally= " + userTally);
     $('#score').text(userTally);
-          //create win/lose scenario
-        if (userTally == Goal){
-          gameWin();
-        }
-        else if (userTally > Goal){
-          gameLoss();
-        }
-    })
-  $('#BlueCrystal').on ('click', function(){
-      userTally = userTally + BlueCrystal;
-      console.log("New userTally= " + userTally);
-      $('#score').text(userTally);
-            //create win/lose scenario
-          if (userTally == Goal){
-            gameWin();
-          }
-          else if (userTally > Goal){
-            gameLoss();
-          }
-      });
+      //create win/lose scenario
+    if (userTally == Goal){
+     gameWin();
+    }
+    else if (userTally > Goal){
+      gameLoss();
+    }
+});
+
+$('#BlueCrystal').on ('click', function(){
+    userTally = userTally + BlueCrystal;
+    console.log("New userTally= " + userTally);
+    $('#score').text(userTally);
+    //create win/lose scenario
+    if (userTally == Goal){
+      gameWin();
+    }
+    else if (userTally > Goal){
+      gameLoss();
+    }
+  });
+
+$(function () {
+  var animationend = 'animationend oAnimationEnd mozAnimationEnd webkitAnimationEnd MSanimationEnd';
+
+  $("#GreenCrystal").on('click', function () {
+    $("#GreenCrystal").addClass("animated bounceIn").one(animationend, function () {
+      $(this).removeClass("animated bounceIn");
+    });
+  });
+
+ $("#PurpleCrystal").on('click', function () {
+    $("#PurpleCrystal").addClass("animated bounceIn").one(animationend, function () {
+      $(this).removeClass("animated bounceIn");
+    });
+  });
+
+  $("#OrangeCrystal").on('click', function () {
+    $("#OrangeCrystal").addClass("animated bounceIn").one(animationend, function () {
+      $(this).removeClass("animated bounceIn");
+    });
+  });
+
+  $("#BlueCrystal").on('click', function () {
+    $("#BlueCrystal").addClass("animated bounceIn").one(animationend, function () {
+        $(this).removeClass("animated bounceIn");
+    });
+  });
+});
 });
